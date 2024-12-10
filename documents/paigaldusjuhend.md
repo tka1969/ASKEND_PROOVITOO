@@ -6,7 +6,7 @@ Eeldused:
 
 postgresql: Loo andmebaas askendapi (script asub backend/src/main/resources/db/db-create/create-database.sql). Tabelid ja algandmed luuakse liquibase-i poolt rakenduse käivitamisel.
 
-rakendus: Lae alla GitHubis olev rakenduse lähtekood: git clone https://github.com/DigiVikings/ASKEND_PROOVITOO.git
+rakendus: Lae alla GitHubis olev rakenduse lähtekood: git clone https://github.com/tka1969/ASKEND_PROOVITOO.git
 
 backend:
 backendi kasutamiseks terminalis gradlew bootRun
