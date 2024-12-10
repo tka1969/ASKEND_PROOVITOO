@@ -1,0 +1,15 @@
+<h2 mat-dialog-title class="dialog-title">Filter criteria</h2>
+<span class="divider-line"></span>
+
+<mat-dialog-content >
+  <widget-dynamic-form #idDynamicForm [dynamicForm]="dynamicForm" [formData]="criteria"></widget-dynamic-form>
+  <widget-dynamic-form #idDynamicFormAmount [dynamicForm]="dynamicFormAmount" [formData]="criteriaAmount" [hidden]="visibleCriteria!='AMOUNT'"></widget-dynamic-form>
+  <widget-dynamic-form #idDynamicFormTitle [dynamicForm]="dynamicFormTitle" [formData]="criteriaTitle" [hidden]="visibleCriteria!='TITLE'"></widget-dynamic-form>
+  <widget-dynamic-form #idDynamicFormDate [dynamicForm]="dynamicFormDate" [formData]="criteriaDate" [hidden]="visibleCriteria!='DATE'"></widget-dynamic-form>
+</mat-dialog-content>
+
+<span class="divider-line"></span>
+<mat-dialog-actions align="end">
+  <button mat-raised-button mat-primary color="primary" style="margin-right:8px;" (click)="doDialogOkAction()" cdkFocusInitial>Ok</button>
+  <button mat-flat-button color="warn" style="margin-right:8px;" (click)="closeThisDialog()">Close</button>
+</mat-dialog-actions>

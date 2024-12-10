@@ -1,0 +1,425 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@include mat.core();
+
+
+$primary: mat.m2-define-palette(mat.$m2-indigo-palette, 50);
+$accent:  mat.m2-define-palette(mat.$m2-pink-palette, 50, A200, A400);
+$warn:    mat.m2-define-palette(mat.$m2-red-palette, 50);
+
+$theme: mat.m2-define-light-theme((
+ color: (
+   primary: $primary,
+   accent: $accent,
+   warn: $warn,
+ )
+));
+
+$theme1: mat.m2-define-dark-theme((
+ color: (
+   primary: $primary,
+   accent: $accent,
+   warn: $warn,
+ )
+));
+
+$bluesky-primary: mat.m2-define-palette(mat.$m2-indigo-palette);
+$bluesky-accent: mat.m2-define-palette(mat.$m2-pink-palette, A200, A100, A400);
+$bluesky-warn: mat.m2-define-palette(mat.$m2-red-palette);
+$bluesky-theme: mat.m2-define-light-theme((
+  color: (
+    primary: $bluesky-primary,
+    accent: $bluesky-accent,
+    warn: $bluesky-warn,
+  )
+));
+
+$bright-navy-blue-palette: (
+  50: #e3f2fd,
+  100: #badffb,
+  200: #8fcbfa,
+  300: #61b7f7,
+  400: #3ca7f6,
+  500: #0c98f5,
+  600: #078ae7,
+  700: #0078d4,
+  800: #0067c2,
+  900: #0049a3,
+  A100: #c2e4ff,
+  A200: #addcff,
+  A400: #1f9eff,
+  A700: #00518f,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(black, 0.87),
+    A200: rgba(black, 0.87),
+    A400: white,
+    A700: white,
+  )
+);
+$gainsboro-palette: (
+  50: #f9f9fa,
+  100: #f3f3f4,
+  200: #ebebec,
+  300: #dcdcdd,
+  400: #b9b9ba,
+  500: #99999a,
+  600: #707071,
+  700: #5d5d5e,
+  800: #3e3e3f,
+  900: #1d1d1e,
+  A100: #f5f5f5,
+  A200: #eaeaeb,
+  A400: #d6d6d7,
+  A700: #838386,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(black, 0.87),
+    A200: rgba(black, 0.87),
+    A400: rgba(black, 0.87),
+    A700: white,
+  )
+);
+$crimson-palette: (
+  50: #ffebef,
+  100: #ffcdc5,
+  200: #f0999f,
+  300: #e77179,
+  400: #f24e58,
+  500: #f83a40,
+  600: #e9313e,
+  700: #d72638,
+  800: #ca1e30,
+  900: #bb0d24,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  )
+);
+
+
+$bluesky-primary: mat.m2-define-palette($bright-navy-blue-palette, 700, 300, 900);
+$bluesky-accent: mat.m2-define-palette($gainsboro-palette, 300, 100, 500);
+$bluesky-warn: mat.m2-define-palette($crimson-palette, 700);
+$bluesky-theme: mat.m2-define-light-theme((
+  color: (
+    primary: $bluesky-primary,
+    accent: $bluesky-accent,
+    warn: $bluesky-warn,
+  )
+));
+
+@include mat.all-component-themes($bluesky-theme);
+
+
+body {
+  font-family: Roboto, Arial, Montserrat, sans-serif;
+  margin: 0;
+}
+
+.dialog-title {
+  background: rgba(239,247,251,0.91);
+  color: #00518f;
+  font-weight: bolder;
+}
+
+
+.titlebar {
+  display: flex;
+  width: 100%;
+  background: rgba(239,247,251,0.91);
+  color: #00518f;
+  vertical-align: middle;
+  align-items: center;
+  font-size: 1.5em;
+  border-bottom: 1px solid #48484830;
+}
+
+.titlebar-text {
+  padding-left: 8px;
+  padding-right: 8px;
+  font-weight: bolder;
+  top: 0;
+  bottom: 0;
+  white-space: nowrap;
+}
+
+.button-container-right {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  display: flex;
+  width: 100%;
+  justify-content: right;
+}
+
+.button-container-left {
+  left: 0;
+  right: 0;
+  display: flex;
+  width: 96%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+  justify-content: left;
+}
+
+.button-row-container-left {
+  left: 0;
+  right: 0;
+  display: flex;
+  width: 100%;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 8px;
+  margin-right: 8px;
+  justify-content: left;
+}
+
+.mat-mdc-dialog-actions {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+/*https://stackoverflow.com/questions/67563648/hide-arrows-from-mat-form-field-in-angular-material*/
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+
+.data-form-item-10 {
+  width: 10%;
+}
+
+.data-form-item-15 {
+  width: 15%;
+}
+
+.data-form-item-20 {
+  width: 20%;
+}
+
+.data-form-item-25 {
+  width: 25%;
+}
+
+.data-form-item-33 {
+  width: calc(100% / 3)
+}
+
+.data-form-item-40 {
+  width: 40%;
+}
+
+.data-form-item-50 {
+  width: 50%;
+}
+
+.data-form-item-60 {
+  width: 60%;
+}
+
+.data-form-item-70 {
+  width: 70%;
+}
+
+.data-form-item-75 {
+  width: 75%;
+}
+
+.data-form-item-80 {
+  width: 80%;
+}
+
+.data-form-item-90 {
+  width: 90%;
+}
+
+.data-form-item-100 {
+  width: 100%;
+}
+
+.data-form-item-width-100 {
+  width: 100%;
+  }
+  
+.data-form-item-width-33 {
+  width: 33%;
+}
+
+
+.example-form-fields {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.flex-align {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.action-form-wrap {
+  justify-content: flex-start;
+  background: white;
+  min-height: 40vh;
+}
+
+.noborder {
+  border: 0px;
+}
+
+.form-group1 {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  padding-top: 20px;
+}
+
+.alignment .mat-form-field-outline-start,
+.alignment .mat-form-field-outline-end {
+    border-radius: 0px !important;
+}
+
+::ng-deep .mat-mdc-form-field-appearance-outline .mat-mdc-form-field-outline-end {
+  border-radius: 0px !important;
+}
+::ng-deep .mat-mdc-form-field-appearance-outline .mat-mdc-form-field-outline-start {
+  border-radius: 0px !important;
+}
+
+.mat-button-base {
+  border-radius: 0px !important;
+}
+
+.mat-card {
+  border-radius: 0px !important;
+}
+
+.mdc-notched-outline__leading {
+  border-radius: 0;
+}
+
+.mdc-text-field--outlined
+   .mdc-notched-outline
+   .mdc-notched-outline__trailing {
+   border-radius: 0;
+} 
+
+.mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__leading
+{
+  border-radius: 0 0 0 0 !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;  
+}
+
+.mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__trailing {
+  border-radius: 0 0 0 0 !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;  
+}
+
+.mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.mat-mdc-form-field-infix {
+  min-height: 34px !important;
+}
+
+
+/** divider **/
+.divider {
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: #48484830;
+  margin: 5px 0;
+}
+
+.divider-line {
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: #48484830;
+}
+
+.divider-blank {
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: #48484830;
+}
+
+/** spacer **/
+.spacer {
+  display: block;
+  height: 10px;
+  width: 100%;
+  margin: 5px 0;
+}
+
+.spacer-small {
+  display: block;
+  height: 5px;
+  width: 100%;
+  background-color: rgba(239, 246, 251, 0.90);
+}

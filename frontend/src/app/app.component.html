@@ -1,0 +1,46 @@
+<mat-toolbar [style.font-weight]="'bold'">
+  <span>Search filters</span>
+  <span class="spacer-vert"></span>
+
+  <button
+    mat-raised-button mat-primary
+    color="primary" 
+    style="margin-right:8px;"
+    (click)="toggleModal()">
+    {{toggleButtonText}}
+  </button>
+</mat-toolbar>
+
+<span class="divider-line"></span>
+
+<widget-titlebar [titleText]="titlebarText" [boldText]="true"></widget-titlebar>
+
+@if (service.isError()) {
+  <span> Error - {{service.getError()}}</span>
+}
+
+@if (service.isLoading()) {
+  <mat-progress-spinner
+      mode="indeterminate"
+      color="primary"
+      >
+  </mat-progress-spinner>
+}
+@else if (service.isLoaded()) {  
+  <widget-data-table 
+      [tableData]="service.getResources()"
+      [tableColumns]="filterTableColumns"
+      [tableActions]="filterTableActions"
+      [isPageable]="true"
+      [expandedRowMode]="isExpandedRowMode"
+      [expandedRowTemplate]="isExpandedRowMode ? templateExpandedRow : undefined"
+      (tableActionEvent)="filterTableAction($event)"
+      (rowActionEvent)="filterRowAction($event)"
+      (rowExpandEvent)="filterRowExpand($event)"
+      >
+  </widget-data-table>
+}
+
+<ng-template #templateExpandedRow let-element="element">
+  <filter-template-component style="width: 100%;" [filter]=element></filter-template-component>
+</ng-template>

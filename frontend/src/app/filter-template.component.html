@@ -1,0 +1,55 @@
+<div #dialogContainer class="flex-container" cdkDrag cdkDragRootElement=".cdk-overlay-pane">
+
+<div #dialogTitle [hidden]="!isModal" style="width: 100%;">
+<h2 mat-dialog-title class="dialog-title" [hidden]="!isModal" cdkDragHandle>Filter</h2>
+<span class="divider-line" [hidden]="!isModal"></span>
+</div>
+
+<div #dialogContent class="adjustable-element-wrapper" style="width: 100%; " >
+<mat-dialog-content class="adjustable-element" >
+  <section class="dialog-content-container" tabindex="0">
+    <widget-dynamic-form #dialogForm [dynamicForm]="dynamicForm" [formData]="filter"></widget-dynamic-form>
+    
+    <span class="spacer"></span>
+    <span class="divider-line"></span>
+     
+    <div class="data-form-item-100 example-form-field custom-field">
+      <label class="data-form-item-100 example-form-field custom-field"><strong>Criterias</strong></label>
+      @if (service.isLoading()) {
+        <mat-progress-spinner
+            mode="indeterminate"
+            color="primary"
+            >
+        </mat-progress-spinner>
+      }
+      @else if (service.isLoaded()) {  
+        <widget-data-table 
+          [tableData]="service.getResources()"
+          [tableColumns]="criteriaTableColumns"
+          [tableActions]="criteriaTableActions"
+          [isPageable]="true"
+          (tableActionEvent)="criteriaTableAction($event)"
+          (rowActionEvent)="criteriaRowAction($event)"
+        >
+        </widget-data-table>
+      }
+    </div>
+    <span class="spacer"></span>
+    <widget-dynamic-form #dialogRadioForm [dynamicForm]="dynamicRadioForm" [formData]="someSelection"></widget-dynamic-form>
+    <span class="divider-line"></span>
+  </section>
+</mat-dialog-content>
+</div>
+
+<div #dialogButtons style="bottom: 0; position: relative; width: 100%; flex-wrap: wrap; " >
+  <span class="divider-line"></span>
+  <span class="spacer"></span>
+
+<mat-dialog-actions class="button-container-right" align="end">
+  <button mat-raised-button mat-primary color="primary" style="margin-right:8px;" (click)="onSaveAction()">Save</button>
+  <button mat-flat-button color="warn" style="margin-right:8px;" [hidden]="!isModal" (click)="doClose()">Close</button>
+</mat-dialog-actions>
+<span class="spacer" [hidden]="!isModal"></span>
+</div>
+
+</div>

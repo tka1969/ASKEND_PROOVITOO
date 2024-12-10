@@ -1,0 +1,17 @@
+
+.flex-container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100%;
+}
+
+.dialog-content-container {
+  height: 350px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+[mat-dialog-title] {
+  padding: 8px 16px;
+}
+
