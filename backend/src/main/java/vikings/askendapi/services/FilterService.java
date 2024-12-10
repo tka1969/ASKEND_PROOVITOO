@@ -40,7 +40,9 @@ public class FilterService {
 	
 	@Transactional
 	public FilterDto add(FilterDto filter) {
-		return filterMapper.toDto(filterRepository.save(filterMapper.toEntity(filter)));
+		FilterEntity savedFilterEntity = filterRepository.save(filterMapper.toEntity(filter));
+		List<FilterCriteriaDto> filterCriterias = filterCriteriaService.bulkSave(savedFilterEntity.getId(), filter.criterias());
+		return filterMapper.toDto(savedFilterEntity, filterCriterias);
 	}
 	
 	@Transactional
@@ -56,7 +58,7 @@ public class FilterService {
 	public boolean deleteById(Long id) {
 		filterCriteriaService.deleteByFilterId(id);
 		if (filterRepository.updateToDeletedById(id, GlobalConstants.MODIFIED_BY) < 1) {
-			throw getFilterRestException(id);
+			getFilterRestException(id);
 		}
 		return true;
 	}
