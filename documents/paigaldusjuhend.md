@@ -15,6 +15,7 @@ frontend:
 Mine kataloogi frontend
 
 installi vajalikud moodulid: npm install --legacy-peer-deps (--legacy-peer-deps vajalik, kuna material kasutab moment js librarit)
+
 stardi angulari klient: ng serve
 
 Veebilehitsejas ava http://localhost:4200 (NB! Rakendus töötab http-ga, sobilik on Chrome Incognito)
