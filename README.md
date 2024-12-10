@@ -13,10 +13,10 @@ Frontend komponent kuvab andmeid kasutajatele ja võimaldab neid lisada või vä
 [Frontend detailid](frontend/README.md)
 
 
-## Proovitöö lahenduse kävitamine
+## Proovitöö lahenduse paigaldus ja kävitamine
 
+[Paigaldusjuhend](documents/paigaldusjuhend.md)
 
 ## Muu info
 
 Lahendus on testidud Windows 11
-
