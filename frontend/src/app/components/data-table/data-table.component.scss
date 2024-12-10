@@ -1,0 +1,81 @@
+table {
+  width: 100%;
+}
+  
+tr.odd-color {
+  background: #fcfcfc;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.data-table-icon {
+    padding: 0 2px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* Row hover bakground */
+.mat-row:hover .mat-cell {
+  background-color: #fff5a2;
+  user-select: none;
+}
+
+th.mat-header-cell {
+  border-top: 1px solid #48484830 !important;
+  background: rgba(239,247,251,0.91) !important;
+  cursor: pointer;
+  user-select: none;
+}
+
+tr.mat-header-row {
+  border-top: 1px solid #48484830 !important;
+  background: rgba(247, 251, 253, 0.897) !important;
+  user-select: none;
+}
+
+tr.mat-row {
+  border-bottom: 1px solid #48484830 !important;
+  cursor: pointer;
+  user-select: none;
+}
+
+.button-row-space {
+  left: 0;
+  right: 0;
+    
+  display: flex;
+  width: 100%;
+
+  padding-top: 0px;
+  padding-bottom: 0px;
+
+  margin-top:0px;
+  margin-bottom:0px;
+  margin-left:0px;
+  margin-right:0px;
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: #777;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+}

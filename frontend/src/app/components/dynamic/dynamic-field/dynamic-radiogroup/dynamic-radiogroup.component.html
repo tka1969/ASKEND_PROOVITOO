@@ -1,0 +1,13 @@
+<div class="data-form-item-100 example-form-field custom-field" [formGroup]="group" [hidden]=hidden>
+    <mat-label class="data-form-item-100 example-form-field custom-field">{{field.label!}}</mat-label>
+    <mat-radio-group
+          aria-labelledby="example-radio-group-label"
+          class="example-radio-group"
+          [formControlName]="field.controlName"
+          (change)="onValueChange($event)"
+          >
+        @for (option of optionValues; track option) {
+            <mat-radio-button class="example-radio-button" [value]="option.key">{{option.value}}</mat-radio-button>
+        }
+        </mat-radio-group>
+</div>

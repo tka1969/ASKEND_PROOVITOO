@@ -1,0 +1,42 @@
+@use '@angular/material' as mat;
+@use '@angular/material/core/theming/theming';
+@use '@angular/material/core/theming/inspection';
+@use '@angular/material/core/tokens/token-utils';
+@use '@angular/material/core/typography/typography';
+
+@import '../_shared/scss/variables';
+
+@include mat.core();
+
+
+@mixin base($theme) {
+}
+
+@mixin color($theme) {
+  $primary-default: mat.get-theme-color($theme, primary, default);
+  $secondary-default: mat.get-theme-color($theme, accent, default);
+  $warning-default: mat.get-theme-color($theme, warn, 100);
+  $danger-default: mat.get-theme-color($theme, warn, 500);
+}
+
+@mixin typography($theme) {
+}
+
+@mixin density($theme) {
+}
+
+@mixin theme($theme) {
+
+  @include theming.private-check-duplicate-theme-styles($theme, 'nice-titlebar') {
+    @include base($theme);
+    @if inspection.theme-has($theme, color) {
+      @include color($theme);
+    }
+    @if inspection.theme-has($theme, density) {
+      @include density($theme);
+    }
+    @if inspection.theme-has($theme, typography) {
+      @include typography($theme);
+    }
+  }
+}

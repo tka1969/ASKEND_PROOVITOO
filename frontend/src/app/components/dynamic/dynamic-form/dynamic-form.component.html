@@ -1,0 +1,11 @@
+<form class="dynamic-form" [formGroup]="mainForm" (submit)="onSubmit($event)">
+    <div class="data-form-item-100 editproduct">
+        @for (formGroup of dynamicForm.formGroups; track formGroup.version) {
+            <div class="example-form-fields">
+                @for (field of formGroup.controls; track field.version) {
+                    <ng-container dynamicField [field]="field" [group]="mainForm"></ng-container>
+                }
+            </div>
+        }
+    </div>
+  </form>

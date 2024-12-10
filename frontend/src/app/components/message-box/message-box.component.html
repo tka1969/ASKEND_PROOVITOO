@@ -1,0 +1,21 @@
+<div class="mat-dialog-container" cdkDrag cdkDragRootElement=".cdk-overlay-pane">
+  <div class="message-box">
+    <h2 mat-dialog-title cdkDragHandle >
+      {{title}}
+    </h2>
+
+    <div mat-dialog-content>
+      <p>{{message}}</p>
+    </div>
+
+    <div mat-dialog-actions align="center">
+      <button mat-raised-button color="primary" (click)="onAcknowledge(messageBoxResult.ok)" *ngIf="isOkVisible()">OK</button>
+      <button mat-raised-button color="primary" (click)="onAcknowledge(messageBoxResult.abort)" *ngIf="isAbortVisible()">Abort</button>
+      <button mat-raised-button color="primary" (click)="onAcknowledge(messageBoxResult.retry)" *ngIf="isRetryVisible()">Retry</button>
+      <button mat-raised-button color="primary" (click)="onAcknowledge(messageBoxResult.ignore)" *ngIf="isIgnoreVisible()">Ignore</button>
+      <button mat-raised-button color="primary" (click)="onAcknowledge(messageBoxResult.yes)" *ngIf="isYesVisible()">Yes</button>
+      <button mat-raised-button color="warn" (click)="onAcknowledge(messageBoxResult.no)" *ngIf="isNoVisible()">No</button>
+      <button mat-raised-button color="warn" (click)="onAcknowledge(messageBoxResult.cancel)" *ngIf="isCancelVisible()">Cancel</button>
+    </div>
+  </div>
+</div>

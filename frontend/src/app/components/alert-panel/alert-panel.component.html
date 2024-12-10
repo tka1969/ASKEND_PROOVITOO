@@ -1,0 +1,4 @@
+﻿<div *ngFor="let alert of alerts" class="{{cssClass(alert)}}">
+    <fa-icon class="data-table-icon" style="padding-left: 8px; padding-right: 8px; font-size: 1em" [icon]="iconCheck"></fa-icon>
+    <span>{{alert.message}}</span>
+</div>

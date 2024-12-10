@@ -1,0 +1,49 @@
+::ng-deep .mat-dialog-container {
+    padding: 0;
+    overflow: hidden;
+
+    .message-box {
+
+        .h2 {
+            padding: 8px 12px;
+            color: #fff;
+            background: #102598;
+            border-bottom: 1px solid #e5e5e5;
+            font-size: 10pt;
+            font-weight: bold;
+        }
+
+        .mat-dialog-title {
+            padding: 8px 12px;
+            color: #fff;
+            background: #102598;
+            border-bottom: 1px solid #e5e5e5;
+            font-size: 10pt;
+            font-weight: bold;
+        }
+    
+        .mat-dialog-content {
+            padding: 0 36px;
+            min-width: 360px;
+            font-size: 10pt;
+            color: #000;
+        }
+    
+        .mat-dialog-actions {
+            padding: 8px 12px 32px 12px;
+            border-top: 1px solid #c0b0b0;
+            display: block;
+            text-align: right;
+        }
+    
+        .mat-dialog-actions button {
+            font-size: 9pt;
+            font-weight: bold;
+            color: #fff;
+            background: #102598;
+            margin: 3px 2px;
+            padding: 0;
+            outline: 0;
+        }
+    }
+}

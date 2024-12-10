@@ -1,0 +1,10 @@
+<div [hidden]=hidden>
+  <mat-label class="data-form-item-100 example-form-field custom-field">{{field.label!}}</mat-label>
+  <mat-form-field class="data-form-item-100 example-form-field custom-field demo-full-width" [formGroup]="group" color="accent" floatLabel="auto" appearance="outline" hintLabel="{{validatorHint('maxLength', 'Max ', ' characters')}}">
+    <input matInput #id class="custom-field" [formControlName]="field.controlName" [placeholder]="field.placeholder!" [type]="field.controlType" [readonly]="readonly">
+    <mat-hint *ngIf="hasValidator('maxLength')" align="end">{{validatorHint("maxLength", id.value.length + "/", "")}}</mat-hint>
+    <ng-container *ngFor="let validation of field.validators;" ngProjectAs="mat-error">
+      <mat-error *ngIf="group.get(field.controlName)?.hasError(validation.validator)">{{validation.message}}</mat-error>
+    </ng-container>
+  </mat-form-field>
+</div>
